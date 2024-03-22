@@ -10,7 +10,6 @@ const app = express();
 
 // Set the view engine to Pug
 app.set('view engine', 'pug');
-
 // Specify the directory where your Pug templates are located
 app.set('views', path.join(__dirname, 'view'));
 
@@ -27,6 +26,7 @@ app.get('/', function (req, res) {
     res.render('index', { genericAd: true });
 });
 
+//random other test URL
 app.get('/personalizedAds/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'indexPersonalizedAd.html'));
 });
