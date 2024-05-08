@@ -65,85 +65,158 @@ html(lang="en")
         width: 70%;
         height: auto;
       }
-      .container {
-        display: flex;
-        gap: 2em;
-        flex-flow: column;
-        margin: 0 auto;
-        justify-content: center;
-      }
+     
       .row {
         display: flex;
         gap: 2em;
         flex-flow: row wrap;
         justify-content: space-between;
       }
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-      }
+      
       .adContainer {
         display: flex;
         background-color: lightcoral;
         align-items: center;
         justify-content: space-between;
         height: 100px;
-        width: 900;
-        border-radius: 10px; /* Add rounded corners */
+        width: 100%;
+        border-radius: 5px; /* Add rounded corners */
         padding: 10px;
       }
-      .articleContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 200px;
-        width: 900;
-      }
+     
       .divider {
         width: 100%;
         border-top: 1px solid #ccc;
         /* Set border color and style */
       }
-      .left-item {
-        flex: 1;
+      
+
+      .payment-option {
+        margin-bottom: 20px;
       }
-      .right-item {
-        flex: 2;
-        padding-left: 20px;
-        /* Adjust spacing between items */
+
+      .flexcontainer {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        display: flex; /* Display flex for layout */
+        justify-content: space-between; /* Space between the two sections */
+        background-color:orange;
+        border-radius: 5px
+      }
+      .contractContainer {
+        max-width: 200px;
+        margin: 10px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
       h1 {
             text-align: center;
         }
+      ul {
+        list-style-type: none;
+        padding-left: 30;
+      }
+      li::before {
+        content: "\2022"; /* Bullet point */
+        color: orange; /* Bullet point color */
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: orange;
+        color: black; /* Text color changed to black */
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        width: 100%;
+      }
+      h3 {
+            text-align: center;
+        }
+      .details-container {
+        width: 100%;
+        display: flex;
+        margin:5px;
+        background-color: orange;
+        padding: 5px;
+        border-radius: 5px
+      }
+      .big-container {
+        flex: 1;
+        border-radius: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-right: 0px;
+        background-color: white
+
+      }
+      .small-container {;
+        border-radius: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 20px;
+        padding-left: 20px;
+        margin-right: 0px;
+        margin-left: 0px;
+        background-color: white
+      }
+
+
   body
-    .adContainer
-      if genericAd === true
-        .div 
-          p Some Generic Ad
-          p You have not proposed to personalized advertising. Therefore we present you generic ads.
-      else
-        .left-item
-          p Some Personalized A
-          p You have not proposed to personalized advertising. Therefore we present you generic ads.
-    h1 news.de
-    .articleContainer
-      .left-item
-        img(src="pics/pic1.jpg", alt="Image")
-      .right-item
-        p Article 1
-        p Proposed to you based on your profile. In total you were granted 50% of possible content.
-    .divider
-    .articleContainer
-      .left-item
-        img(src="pics/pic1.jpg", alt="Image")
-      .right-item
-        p Article 2
-        p Proposed to you based on your profile. In total you were granted 50% of possible content.
-    .divider
-    .articleContainer
-      .left-item
-        img(src="pics/pic1.jpg", alt="Image")
-      .right-item
-        p Article 3
-        p Proposed to you based on your profile. In total you were granted 50% of possible content.
-    .divider
+    if showPayments
+      .flexcontainer
+        .contractContainer
+          h3 Your Selection
+          button(type='button') Subscribe
+          div.payment-option
+            ul
+              li 2 Euros per month
+              li Access 100% of our content
+              li Consent to processing your personal data for 'personalizedAds'
+        .contractContainer
+          h3 Ad Free Reading
+          button(type='button') Subscribe
+          div.payment-option
+            ul
+              li 3 Euros per month
+              li Access 100% of our content
+              li Ad-free reading
+    else
+      .adContainer(style=`background-color: ${genericAd ? 'orange' : 'lightred'}`)
+        if genericAd
+          .div 
+            p Some Generic Ad
+            p You have not consented to personalized advertising. We can still show you ads. 
+        else
+          .div
+            p Some Personalized Ad
+            p You have consented to personalized advertising.
+      object(data="pics/site.svg", type="image/svg+xml", width="100%", height="100%")
+
+    
+    //- Pug code for the containers
+    div.details-container
+      div.big-container
+        h4 Consent
+        p accepted: #{acceptedString}
+        p rejected: #{rejectedString}
+      div.small-container
+        h4 Content
+        p #{contentPercentage}%
+      div.small-container
+        h4 Cost
+        p #{cost} EUR
+      div.small-container
+        h4 Score
+        p #{score}
+
+
