@@ -6,18 +6,16 @@ import { fileURLToPath } from 'url';
 // Create an Express application
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
+// Pug is view engine
+app.set('view engine', 'pug');
+// Directory of pug templates
+app.set('views', path.join(__dirname, 'view'));
+
 // Because its just a mock, i allow this service to have a state
 // The state is managed in this counter and can be reset with ./reset/
 let count = 0;
 
-// Set the view engine to Pug
-app.set('view engine', 'pug');
-// Specify the directory where your Pug templates are located
-app.set('views', path.join(__dirname, 'view'));
-
-// Define custom middleware to set headers for GET requests
 app.get('/', function (req, res) {
-    // SET HEADER (mock actual offer calculation etc.)
     const adpcHeader = req.headers['adpc']
 
     console.log('RECEIVED: ', adpcHeader);
@@ -46,25 +44,7 @@ app.get('/', function (req, res) {
         res.render('index', uiConfigs[count-1]);        
     }
 
-    
-
-
- 
 });
-
-/**
- * testing purposes. can thereby quickly reset server state. 
- */
-app.get('/reset/', (req, res) => {
-    count = 0
-    //res.sendFile(path.join(__dirname, 'public', 'indexPersonalizedAds.html'));
-})
-//random other test URL
-/*app.get('/personalizedAds/', (req, res) => {
-    res.render('index', { genericAd: false });
-    
-    //res.sendFile(path.join(__dirname, 'public', 'indexPersonalizedAds.html'));
-});*/
 
 // Serve static files from the 'public' directory -> Pictures
 // Must be the last item so that headers can be customized in the .get

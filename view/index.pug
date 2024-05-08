@@ -110,7 +110,7 @@ html(lang="en")
         padding: 20px;
         background-color: #fff;
         border-radius: 15px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px;
       }
       h1 {
             text-align: center;
@@ -144,7 +144,7 @@ html(lang="en")
         width: 100%;
         display: flex;
         margin:5px;
-        background-color: orange;
+        background-color: rgba(234, 174, 90, 1);
         padding: 5px;
         border-radius: 5px
       }
@@ -191,7 +191,7 @@ html(lang="en")
               li Access 100% of our content
               li Ad-free reading
     else
-      .adContainer(style=`background-color: ${genericAd ? 'orange' : 'lightred'}`)
+      .adContainer(style=`background-color: ${genericAd ? 'rgba(234, 174, 90, 1)' : 'rgba(231, 105, 72, 0.9)'}`)
         if genericAd
           .div 
             p Some Generic Ad
