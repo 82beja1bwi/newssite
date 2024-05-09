@@ -19,6 +19,12 @@ To utilize this mock service:
 3. Start the service with `npm start`.
 4. Access the service through HTTP requests, utilizing the provided endpoints.
 
-## Further Details
+## Structure
 
-For additional details on implementation or customization, refer to the codebase. Further information beyond what's outlined here may not be relevant for typical usage scenarios.
+- `models`: Contains the data models used by the service.
+- `node_modules`: Directory where npm installs the project dependencies.
+- `public/pics`: Directory for storing images and other public assets.
+- `view`: Contains pug templates
+- `server.js`: Entry point for the application, where the Express server is configured and started.
+- `responses.js`: Static data for rendering, response generation and integration testing
+- `package.json` and `package-lock.json`: Configuration files for npm, containing metadata about the project and its dependencies.
