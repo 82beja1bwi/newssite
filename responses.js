@@ -2,6 +2,10 @@ import Consent from './models/consent.js';
 import Header, { NegotiationStatus } from './models/header.js';
 import ScoredPreferences, { Issue } from './models/scored_preferences.js';
 
+/**
+ * An object with different rendering options. 
+ * These variables will be used in index.pug.
+ */
 class RenderConfig {
     constructor(genericAd, showPayments, contentPercentage, acceptedString, rejectedString, cost, score) {
         this.genericAd = genericAd
@@ -14,7 +18,10 @@ class RenderConfig {
     }
     
 }
-//bool genericAd
+
+/**
+ * Each config determines the content rendered in index.pug.
+ */
 const uiConfigs = [
     new RenderConfig(true, false, 80, '-', 'analytics, personalized ads, identification, personalized content, marketing, external content',0, 3008),
     new RenderConfig(true, false, 80,'-', 'analytics, personalized ads, identification, personalized content, marketing, external content',0, 3008),
@@ -24,7 +31,11 @@ const uiConfigs = [
     new RenderConfig(false, true, 100, 'personalized ads', 'analytics, identification, personalized content, marketing, external content',2, 5120),
     new RenderConfig(false, true, 100, 'personalized ads', 'analytics, identification, personalized content, marketing, external content',2, 5120),
 
-] //TODO
+]
+
+/**
+ * The mock headers to be returned to the calling agent.
+ */
 const responseHeaders = [
     // 1) just confirm opening offer. share content option. share preferences
     new Header().setStatus(NegotiationStatus.EXCHANGE)
@@ -59,7 +70,7 @@ const responseHeaders = [
 ]
 
 /**
- * support the integration test with expected headers received from the user agent
+ * Integration testing. Expected headers at each state of the negotiation. 
  */
 const expectedHeaders = [
     'status=exchange',

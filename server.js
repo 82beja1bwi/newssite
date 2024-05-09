@@ -3,18 +3,21 @@ import path, { dirname } from 'path';
 import { uiConfigs, responseHeaders, expectedHeaders } from './responses.js';
 import { fileURLToPath } from 'url';
 
-// Create an Express application
+//Setup of express and pug (more at end of file...)
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
-// Pug is view engine
 app.set('view engine', 'pug');
-// Directory of pug templates
 app.set('views', path.join(__dirname, 'view'));
 
-// Because its just a mock, i allow this service to have a state
-// The state is managed in this counter and can be reset with ./reset/
+/**
+ * This variable manages the state of the service 
+ * (Yes its stateful... but its just a fake)
+ */
 let count = 0;
 
+/**
+ * Main http endpoint
+ */
 app.get('/', function (req, res) {
     const adpcHeader = req.headers['adpc']
 
@@ -30,7 +33,6 @@ app.get('/', function (req, res) {
 
         res.set("ADPC", responseHeaders[count]);
 
-        //UPDATE UI
         console.log('RENDERDED: ', uiConfigs[count])
         console.log("COUNT ", count)
 
@@ -38,7 +40,8 @@ app.get('/', function (req, res) {
 
         count++
     }else{
-        //re-render
+        // re-render
+        // If the tab is re-loaded (because agent does so), just render last config
         console.log("RE-RENDERED")
 
         res.render('index', uiConfigs[count-1]);        
