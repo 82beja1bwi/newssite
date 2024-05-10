@@ -1,6 +1,6 @@
-# Mock Service for Integration Testing and Showcasing
+# Mock Service for End-to-End Testing and Showcasing
 
-This repository hosts a mock service designed for integration testing and showcasing purposes. The service is built using Pug (formerly known as Jade) and Express.js, rendering pages on the server-side. It sends negotiation headers, expects specific headers in return, and detects deviations, throwing errors when necessary.
+This repository hosts a mock service designed for end-to-end testing and showcasing purposes. The service is built using Pug (formerly known as Jade) and Express.js, rendering pages on the server-side. It sends negotiation headers, expects specific headers in return, and detects deviations, throwing errors when necessary.
 
 ## Overview
 
@@ -26,5 +26,5 @@ To utilize this mock service:
 - `public/pics`: Directory for storing images and other public assets.
 - `view`: Contains pug templates
 - `server.js`: Entry point for the application, where the Express server is configured and started.
-- `responses.js`: Static data for rendering, response generation and integration testing
+- `responses.js`: Static data for rendering, response generation and end-to-end testing
 - `package.json` and `package-lock.json`: Configuration files for npm, containing metadata about the project and its dependencies.
