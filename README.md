@@ -1,6 +1,6 @@
 # Mock Service for End-to-End Testing and Showcasing
 
-This repository hosts a mock service designed for end-to-end testing and showcasing purposes. The service is built using Pug (formerly known as Jade) and Express.js, rendering pages on the server-side. It sends negotiation headers, expects specific headers in return, and detects deviations, throwing errors when necessary.
+This repository holds the mock service designed for end-to-end testing and showcasing purposes. The service is built using Pug (formerly known as Jade) and Express.js, rendering pages on the server-side. It sends negotiation headers, expects specific headers in return, and detects deviations, throwing errors when necessary.
 
 ## Overview
 
@@ -15,9 +15,10 @@ For a visual demonstration of the service's functionality, a video is available 
 To utilize this mock service:
 
 1. Clone this repository to your local machine.
-2. Install dependencies using `npm install`.
-3. Start the service with `npm start`.
-4. Access the service through HTTP requests, utilizing the provided endpoints.
+2. Install NodeJS https://nodejs.org/en/download/package-manager/current
+3. Install dependencies using `npm install`.
+4. Start the service with `npm start`.
+5. Access the service through HTTP requests, utilizing the provided endpoints.
 
 ## Structure
 
