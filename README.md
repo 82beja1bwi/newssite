@@ -1,10 +1,10 @@
 # Mock Service for End-to-End Testing and Showcasing
 
-This repository holds the mock service designed for end-to-end testing and showcasing purposes. The service is built using Pug (formerly known as Jade) and Express.js, rendering pages on the server-side. It sends negotiation headers, expects specific headers in return, and detects deviations, throwing errors when necessary.
+This repository holds the mock service designed for end-to-end testing and showcasing purposes. The service is built using Pug (formerly known as Jade) and Express.js, rendering pages on the server side. It sends negotiation headers, expects specific headers in return, and detects deviations, throwing errors when necessary.
 
 ## Overview
 
-The service operates as a stateful entity, accessible via HTTP requests. It maintains interaction state using a count variable, which influences the negotiation headers and the rendering of different pages. For a broader context refer to https://github.com/82beja1bwi/consent_agent.git.
+The service operates as a stateful entity, accessible via HTTP requests. It maintains an interaction state using a count variable to mimick negotiation headers and render different pages. For a broader context refer to https://github.com/82beja1bwi/consent_agent.git.
 
 ## Video Demonstration
 
